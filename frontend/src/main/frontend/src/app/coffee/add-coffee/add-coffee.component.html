@@ -1,0 +1,31 @@
+<div class="col-md-6 col-sm-6">
+  <h3>New Coffee</h3>
+  <form>
+    <div class="form-group">
+      <label for="nameInput">Name</label>
+      <input name="name" [(ngModel)]="coffee.name" type="text" class="form-control" id="nameInput" placeholder="Name">
+    </div>
+    <div class="form-group">
+      <label for="vendorInput">Vendor</label>
+      <input name="vendor" [(ngModel)]="coffee.vendor" type="text" class="form-control" id="vendorInput" placeholder="Vendor">
+    </div>
+    <div class="form-group">
+      <label for="countryInput">Country</label>
+      <input name="country" [(ngModel)]="coffee.country" type="text" class="form-control" id="countryInput" placeholder="Country">
+    </div>
+    <div class="form-group">
+      <label for="priceInput">Price</label>
+      <input name="price" [(ngModel)]="coffee.price" type="number" class="form-control" id="priceInput" placeholder="Price">
+    </div>
+    <div class="form-group">
+      <label for="volumeInput">Volume</label>
+      <input name="volume" [(ngModel)]="coffee.volume" type="number" class="form-control" id="volumeInput" placeholder="Volume">
+    </div>
+    <div class="form-group">
+      <label for="notesInput">Notes</label>
+      <textarea name="notes" [(ngModel)]="coffee.notes" class="form-control" id="notesInput" placeholder="Additional Info"></textarea>
+    </div>
+
+    <button (click)="saveCoffee()" type="button" class="btn btn-primary">Save</button>
+  </form>
+</div>

@@ -1,0 +1,90 @@
+<!--<carousel>-->
+<!--<slide>-->
+<!--<img src="assets/images/nature/1.jpg" alt="First slide">-->
+<!--</slide>  -->
+<!--</carousel>-->
+<div class="col-md-12" *ngIf="coffee">
+  <h3>{{coffee.name}}</h3>
+  <div class="row">
+    <div class="col-md-3">
+      <!--<img src="../../../assets/img/coffee.png"/>-->
+      <carousel>
+        <slide *ngFor="let image of coffee.images">
+          <img src="{{'/api/image/get/' + image.id}}" class="heightSet"/>
+        </slide>
+      </carousel>
+    </div>
+    <div class="col-md-6">
+      <dl class="dl-horizontal well">
+        <dt>Vendor</dt>
+        <dd>{{coffee.vendor}}</dd>
+        <dt>Country</dt>
+        <dd>{{coffee.country}}</dd>
+        <dt>Price</dt>
+        <dd>{{coffee.price}}</dd>
+        <dt>Volume</dt>
+        <dd>{{coffee.volume}}</dd>
+        <dt>Introduced</dt>
+        <dd>{{coffee.introduced}}</dd>
+        <dt>Notes</dt>
+        <dd>{{coffee.notes}}</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <button class="btn btn-sm btn-default" (click)="goToImageUpload(coffee.id)"><span class="fa fa-plus"></span>&nbsp;Image</button>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-primary"
+              (click)="isCollapsed = !isCollapsed">Write review</button>
+    </div>
+
+  </div>
+
+  <hr>
+  <div (collapsed)="collapsed($event)"
+       (expanded)="expanded($event)"
+       [collapse]="isCollapsed"
+       class="row card card-block card-header"
+       style="margin-bottom: 20px;">
+    <div class=" col-md-9">
+      <form>
+        <div class="form-group">
+          <label for="nameInput">Your Name</label>
+          <input name="name" [(ngModel)]="review.username" type="text" class="form-control" id="nameInput"
+                 placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="commentInput">Comment</label>
+          <textarea name="comment" [(ngModel)]="review.comment" class="form-control" id="commentInput"
+                    placeholder="Comment"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="commentInput">Rate</label>
+          <rating name="rating" [(ngModel)]="review.rate" [max]="5" [readonly]="false"></rating>
+        </div>
+
+        <button (click)="saveReview()" type="button" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div *ngFor="let review of coffee.reviews" class="panel panel-default">
+        <div class="panel-heading">
+          <rating name="rating" [(ngModel)]="review.rate" [max]="5" [readonly]="true"></rating>
+          <span class="pull-right">{{review.timestamp | date:'medium'}}</span>
+        </div>
+        <div class="panel-body">
+          <h4>{{review.username}}</h4>
+          <span>{{review.comment}}</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

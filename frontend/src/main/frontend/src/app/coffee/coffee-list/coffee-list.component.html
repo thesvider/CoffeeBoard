@@ -1,0 +1,22 @@
+<h3>Coffee List</h3>
+<table class="table table-hover">
+    <tr>
+      <th>Name</th>
+      <th>Vendor</th>
+      <th>Country</th>
+      <th>Price</th>
+      <th>Volume</th>
+      <th>Introduced</th>
+      <th>Details</th>
+    </tr>
+    <tr *ngFor="let coffee of coffeeList">
+      <td><a (click)="goToDetail(coffee.id)" style="cursor: pointer;">{{coffee.name}}</a></td>
+      <td>{{coffee.vendor}}</td>
+      <td>{{coffee.country}}</td>
+      <td>{{coffee.price}}</td>
+      <td>{{coffee.volume}}</td>
+      <td>{{coffee.introduced}}</td>
+      <td><button class="btn btn-sm btn-default" (click)="goToDetail(coffee.id)">View</button></td>
+    </tr>
+  </table>
+<button (click)="goToNewCoffee()" class="btn btn-primary">New Coffee</button>
