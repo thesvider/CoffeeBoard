@@ -1,11 +1,11 @@
-package com.coffee.server.web.controllers;
+package com.coffee.web.controllers;
 
-import com.coffee.server.domain.model.Coffee;
-import com.coffee.server.domain.model.Image;
-import com.coffee.server.domain.model.Review;
-import com.coffee.server.domain.repository.CoffeeRepository;
-import com.coffee.server.domain.repository.ImageRepository;
-import com.coffee.server.domain.repository.ReviewRepository;
+import com.coffee.domain.model.Coffee;
+import com.coffee.domain.model.Image;
+import com.coffee.domain.repository.ImageRepository;
+import com.coffee.domain.repository.ReviewRepository;
+import com.coffee.domain.model.Review;
+import com.coffee.domain.repository.CoffeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

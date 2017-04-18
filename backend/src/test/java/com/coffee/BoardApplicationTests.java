@@ -1,4 +1,4 @@
-package com.coffee.server;
+package com.coffee;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

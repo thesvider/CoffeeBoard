@@ -1,4 +1,4 @@
-package com.coffee.server.domain.model;
+package com.coffee.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 

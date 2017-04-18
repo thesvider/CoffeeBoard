@@ -1,7 +1,7 @@
-package com.coffee.server.web.controllers;
+package com.coffee.web.controllers;
 
-import com.coffee.server.domain.model.Image;
-import com.coffee.server.domain.repository.ImageRepository;
+import com.coffee.domain.model.Image;
+import com.coffee.domain.repository.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,6 @@
-package com.coffee.server.domain.repository;
+package com.coffee.domain.repository;
 
-import com.coffee.server.domain.model.Coffee;
+import com.coffee.domain.model.Coffee;
 import org.springframework.data.repository.CrudRepository;
 
 /**

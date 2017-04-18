@@ -15,7 +15,7 @@ import { CoffeeService } from "./coffee/shared/coffee.service";
 import { NavComponent } from './shared/nav/nav.component';
 import { AppRoutingModule }     from './app-routing/app-routing.module';
 import { AddCoffeeComponent } from './coffee/add-coffee/add-coffee.component';
-import {ImageUploadModule} from "angular2-image-upload";
+import { ImageUploadModule} from "angular2-image-upload";
 import { ImageUploadComponent } from './coffee/image-upload/image-upload.component';
 import { AboutComponent } from './about/about.component';
 
