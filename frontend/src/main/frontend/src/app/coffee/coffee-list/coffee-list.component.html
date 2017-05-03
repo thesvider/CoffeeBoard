@@ -7,6 +7,7 @@
       <th>Price</th>
       <th>Volume</th>
       <th>Introduced</th>
+      <th>Rate</th>
       <th>Details</th>
     </tr>
     <tr *ngFor="let coffee of coffeeList">
@@ -15,6 +16,7 @@
       <td>{{coffee.country}}</td>
       <td>{{coffee.price}}</td>
       <td>{{coffee.volume}}</td>
+      <td>{{coffee.introduced}}</td>
       <td>{{coffee.introduced}}</td>
       <td><button class="btn btn-sm btn-default" (click)="goToDetail(coffee.id)">View</button></td>
     </tr>
