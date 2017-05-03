@@ -39,6 +39,8 @@ public class Coffee {
 
     @Column
     private Date introduced;
+    @Column
+    private double rate ;
 
     @OneToMany(mappedBy = "coffee", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
@@ -126,6 +128,14 @@ public class Coffee {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
     }
 
     @Override
