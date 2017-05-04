@@ -44,6 +44,16 @@ export class CoffeeDetailsComponent implements OnInit {
       .catch(error => this.error = error);
   }
 
+  onHover(element):void {
+    document.querySelector("div[id='element-"+element+"']")
+      .className = "col-md-3 taste-additional-info";
+  }
+
+  onLeave(element):void {
+    document.querySelector("div[id='element-"+element+"']")
+      .className = "col-md-3 taste-additional-info invisible";
+  }
+
   saveReview(): void {
     this.review.coffee = this.coffee;
     this.coffeeService
@@ -54,6 +64,8 @@ export class CoffeeDetailsComponent implements OnInit {
         this.isCollapsed = true;
       } )
       .catch(error => this.error = error);
+    this.isCollapsed = true;
+    console.log(this.isCollapsed);
   }
 
   goToImageUpload(coffeeId): void {

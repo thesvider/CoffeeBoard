@@ -1,3 +1,35 @@
 .heightSet {
   height: 300px;
 }
+
+.taste-info:hover > .glyphicon{
+  color: orange;
+}
+
+.taste-additional-info {
+  position:absolute;
+  left:70%;
+}
+
+.visible {
+  display: inline-block;
+}
+
+.invisible {
+  display: inline-block;
+}
+
+.clear {
+  clear: both;
+}
+
+.additional_rate label {
+  margin-left: 2%;
+  display: inline-block;
+}
+
+#m_rating {
+  display: block;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
