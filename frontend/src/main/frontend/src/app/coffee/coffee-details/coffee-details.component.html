@@ -67,24 +67,73 @@
         <div class="form-group">
           <label for="commentInput">Rate</label>
           <rating name="rating" [(ngModel)]="review.rate" [max]="5" [readonly]="false"></rating>
+          <div class="additional_rate">
+            <label id="m_rating">Additional rating:</label>
+            <label>Aroma</label>
+            <rating name="taste" [(ngModel)]="review.aroma" [max]="5" [readonly]="false"></rating>
+            <label>Taste</label>
+            <rating name="taste" [(ngModel)]="review.taste" [max]="5" [readonly]="false"></rating>
+            <label>Acidity</label>
+            <rating name="acidity" [(ngModel)]="review.acidity" [max]="5" [readonly]="false"></rating>
+            <label>Aftertaste</label>
+            <rating name="aftertaste" [(ngModel)]="review.aftertaste" [max]="5" [readonly]="false"></rating>
+            <label>Saturation</label>
+            <rating name="saturation" [(ngModel)]="review.saturation" [max]="5" [readonly]="false"></rating>
+          </div>
         </div>
-
         <button (click)="saveReview()" type="button" class="btn btn-primary">Save</button>
       </form>
     </div>
   </div>
   <div class="row">
     <div class="col-md-9">
-      <div *ngFor="let review of coffee.reviews" class="panel panel-default">
-        <div class="panel-heading">
-          <rating name="rating" [(ngModel)]="review.rate" [max]="5" [readonly]="true"></rating>
-          <span class="pull-right">{{review.timestamp | date:'medium'}}</span>
+      <div *ngFor="let review of coffee.reviews">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <rating name="rating" [(ngModel)]="review.rate" [max]="5" [readonly]="true"></rating>
+            <span class="pull-right">{{review.timestamp | date:'medium'}}</span>
+          </div>
+          <div class="panel-body">
+            <!-- Modal window for additional info -->
+            <div class="taste-additional-info invisible" id="element-{{ review.id }}">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <span>Additional info:</span>
+                </div>
+                <div class="panel-body">
+                  <span>Aroma:</span>
+                  <br>
+                  <rating name="rating" [(ngModel)]="review.aroma" [max]="5" [readonly]="true"></rating>
+                  <br>
+                  <span>Taste:</span>
+                  <br>
+                  <rating name="rating" [(ngModel)]="review.taste" [max]="5" [readonly]="true"></rating>
+                  <br>
+                  <span>Acidity:</span>
+                  <br>
+                  <rating name="rating" [(ngModel)]="review.acidity" [max]="5" [readonly]="true"></rating>
+                  <br>
+                  <span>Aftertaste:</span>
+                  <br>
+                  <rating name="rating" [(ngModel)]="review.aftertaste" [max]="5" [readonly]="true"></rating>
+                  <br>
+                  <span>Saturation:</span>
+                  <br>
+                  <rating name="rating" [(ngModel)]="review.saturation" [max]="5" [readonly]="true"></rating>
+                </div>
+              </div>
+            </div>
+            <!-- End of modal window for additional info -->
+          <span class="pull-right">
+            <div class="taste-info">
+              <span class="glyphicon glyphicon-list-alt" on-mouseover='onHover(review.id)'
+                    on-mouseleave='onLeave(review.id)'></span>
+            </div>
+          </span>
+            <h4>{{review.username}}</h4>
+            <span>{{review.comment}}</span>
+          </div>
         </div>
-        <div class="panel-body">
-          <h4>{{review.username}}</h4>
-          <span>{{review.comment}}</span>
-        </div>
-
       </div>
     </div>
   </div>
