@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface ReviewService {
-       double averageRateByCoffeId(Long id);
 
        double averageRateByCoffeId(Coffee coffee);
 }

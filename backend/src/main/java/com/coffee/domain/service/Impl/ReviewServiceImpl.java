@@ -19,17 +19,10 @@ public class ReviewServiceImpl implements ReviewService {
     private CoffeeRepository coffeeRepository;
 
     @Override
-    public double averageRateByCoffeId(Long id) {
-        Coffee coffee = coffeeRepository.findOne(id);
-        Set<Review> reviews = coffee.getReviews();
-        int a = reviews.stream().mapToInt(Review::getRate).sum();
-        return (double) a / reviews.size();
-    }
-
-    @Override
     public double averageRateByCoffeId(Coffee coffee) {
         Set<Review> reviews = coffee.getReviews();
         int a = reviews.stream().mapToInt(Review::getRate).sum();
         return (double) a / reviews.size();
     }
+
 }
