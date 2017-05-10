@@ -17,7 +17,7 @@
       <td>{{coffee.price}}</td>
       <td>{{coffee.volume}}</td>
       <td>{{coffee.introduced}}</td>
-      <td>{{coffee.rate}}</td>
+      <td><rating name="rating" [(ngModel)]="coffee.rate" [max]="5" [readonly]="true"></rating></td>
       <td><button class="btn btn-sm btn-default" (click)="goToDetail(coffee.id)">View</button></td>
     </tr>
   </table>

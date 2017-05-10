@@ -29,6 +29,7 @@
         <dt>Notes:</dt>
         <dd>{{coffee.notes}}</dd>
         <dt>Rate:</dt>
+        <dd><rating name="rating" [(ngModel)]="coffee.rate" [max]="5" [readonly]="true"></rating></dd>
       </dl>
     </div>
   </div>
