@@ -39,8 +39,9 @@ public class Coffee {
 
     @Column
     private Date introduced;
+
     @Column
-    private double rate ;
+    private Double rate;
 
     @OneToMany(mappedBy = "coffee", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
@@ -130,11 +131,11 @@ public class Coffee {
         this.country = country;
     }
 
-    public double getRate() {
+    public Double getRate() {
         return rate;
     }
 
-    public void setRate(double rate) {
+    public void setRate(Double rate) {
         this.rate = rate;
     }
 
