@@ -6,5 +6,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface UserService extends UserDetailsService {
+
     User findUserById(Long userId);
+
+    User saveNewUser(String email, String password);
+
 }

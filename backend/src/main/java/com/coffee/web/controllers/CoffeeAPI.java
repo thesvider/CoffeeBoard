@@ -2,10 +2,11 @@ package com.coffee.web.controllers;
 
 import com.coffee.domain.model.Coffee;
 import com.coffee.domain.model.Image;
-import com.coffee.domain.repository.ImageRepository;
-import com.coffee.domain.repository.ReviewRepository;
 import com.coffee.domain.model.Review;
 import com.coffee.domain.repository.CoffeeRepository;
+import com.coffee.domain.repository.ImageRepository;
+import com.coffee.domain.repository.ReviewRepository;
+import com.coffee.domain.service.AuthenticationService;
 import com.coffee.domain.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
@@ -29,19 +29,24 @@ import java.util.List;
 public class CoffeeAPI {
 
     @Autowired
-    CoffeeRepository coffeeRepository;
+    private CoffeeRepository coffeeRepository;
 
     @Autowired
-    ReviewRepository reviewRepository;
+    private ReviewRepository reviewRepository;
 
     @Autowired
     private ReviewService reviewService;
 
     @Autowired
-    ImageRepository imageRepository;
+    private ImageRepository imageRepository;
+
+    @Autowired
+    private AuthenticationService authenticationService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<Coffee> findAll() {
+
+      //  String s = authenticationService.getUserEmail();
         List<Coffee> coffeeList = coffeeRepository.findAll();
         sortCoffeeByRate(coffeeList);
         return coffeeList;
@@ -88,7 +93,7 @@ public class CoffeeAPI {
         return new ResponseEntity("done", HttpStatus.OK);
     }
 
-    private void sortCoffeeByRate(List<Coffee> coffees){
-        Collections.sort(coffees, (coffees1, coffees2) -> Double.compare( coffees2.getRate(), coffees1.getRate()));
+    private void sortCoffeeByRate(List<Coffee> coffees) {
+        Collections.sort(coffees, (coffees1, coffees2) -> Double.compare(coffees2.getRate(), coffees1.getRate()));
     }
 }
