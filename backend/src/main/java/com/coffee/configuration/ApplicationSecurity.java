@@ -26,11 +26,21 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests().antMatchers("/api/**").authenticated();
-    http.csrf().disable();
-    http.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint);
-    http.formLogin().successHandler(successHandler);
-    http.formLogin().failureHandler(failureHandler);
+    http
+    .authorizeRequests()
+    .antMatchers("/api/**").authenticated();
+    http
+    .csrf()
+    .disable();
+    http
+    .exceptionHandling()
+    .authenticationEntryPoint(authenticationEntryPoint);
+    http
+    .formLogin()
+    .successHandler(successHandler);
+    http
+    .formLogin()
+    .failureHandler(failureHandler);
     super.configure(http);
   }
 }
